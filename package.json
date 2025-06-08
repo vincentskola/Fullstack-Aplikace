@@ -1,0 +1,26 @@
+{
+  "name": "fullstack-aplikace",
+  "version": "1.0.0",
+  "description": "Todo list",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node database/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincentskola/Fullstack-aplikace.git"
+  },
+  "author": "Jíně Vincent Matyáš",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincentskola/Fullstack-aplikace/issues"
+  },
+  "homepage": "https://github.com/vincentskola/Fullstack-aplikace#readme",
+  "dependencies": {
+    "3": "^2.1.0",
+    "express": "^5.1.0",
+    "sql": "^0.78.0",
+    "sqlite3": "^5.1.7"
+  }
+}
