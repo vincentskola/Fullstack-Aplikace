@@ -4,6 +4,7 @@ CREATE TABLE zvirata (
     vek INTEGER,
     druh_id INTEGER NOT NULL,
     opatrovnik_id INTEGER,
+    popis TEXT, -- stručné informace ke zvířeti
     FOREIGN KEY (opatrovnik_id) REFERENCES opatrovnici(id) ON DELETE SET NULL,
     FOREIGN KEY (druh_id) REFERENCES druhy(id) ON DELETE RESTRICT
 );

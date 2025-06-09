@@ -192,8 +192,10 @@
         }
 
         ul#zvirata-list li {
-            background: rgba(35, 77, 32, 0.85);
-            color: #fff;
+            background: var(--sand);
+            /* změněno z původní tmavě zelené */
+            color: #234d20;
+            /* tmavě zelený text pro lepší kontrast */
             margin-bottom: 22px;
             padding: 0 32px;
             border-radius: 18px;
@@ -451,6 +453,10 @@
                     <label for="opatrovnik">Opatrovník:</label>
                     <select id="opatrovnik" name="opatrovnik_id" required></select>
                 </div>
+                <div>
+                    <label for="popis">Popis:</label>
+                    <input type="text" id="popis" name="popis">
+                </div>
                 <div style="text-align:center;">
                     <button type="submit" class="spotify-btn">Přidat zvíře</button>
                 </div>
@@ -494,13 +500,13 @@
             const jmeno = document.getElementById('jmeno').value;
             const vek = document.getElementById('vek').value;
             const opatrovnik_id = document.getElementById('opatrovnik').value;
-            const druh_id = document.getElementById('druh').value; // správně ID
-            console.log({ jmeno, vek, opatrovnik_id, druh_id });
+            const druh_id = document.getElementById('druh').value;
+            const popis = document.getElementById('popis').value;
             try {
                 const response = await fetch('/api/zvirata', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ jmeno, vek, druh_id, opatrovnik_id }) // správně ID
+                    body: JSON.stringify({ jmeno, vek, druh_id, opatrovnik_id, popis })
                 });
                 if (response.ok) {
                     document.getElementById('zvire-form').reset();
@@ -540,7 +546,7 @@
                 select.innerHTML = '';
                 druhy.forEach(d => {
                     const option = document.createElement('option');
-                    option.value = d.id; // musí být ID!
+                    option.value = d.id;
                     option.textContent = d.nazev;
                     select.appendChild(option);
                 });
@@ -564,6 +570,7 @@
         <span class="zvire-vek">${zvire.vek}</span>
         <span class="zvire-opatrovnik">${opatrovnik.jmeno ? opatrovnik.jmeno + ' ' + opatrovnik.prijmeni : 'neznámý'}</span>
         <span class="zvire-druh">${zvire.druh}</span>
+        <!-- popis zde NEzobrazujeme -->
     </div>
     <div class="zvire-actions"></div>
 `;
@@ -621,11 +628,16 @@
             const selectDruh = document.createElement('select');
             druhyCache.forEach(d => {
                 const option = document.createElement('option');
-                option.value = d.id; // musí být ID!
+                option.value = d.id;
                 option.textContent = d.nazev;
                 if (d.id === zvire.druh_id) option.selected = true;
                 selectDruh.appendChild(option);
             });
+
+            const inputPopis = document.createElement('input');
+            inputPopis.type = 'text';
+            inputPopis.value = zvire.popis || '';
+            inputPopis.placeholder = 'Popis';
 
             const btnSave = document.createElement('button');
             btnSave.type = 'submit';
@@ -642,6 +654,7 @@
             form.appendChild(inputVek);
             form.appendChild(selectOpatrovnik);
             form.appendChild(selectDruh);
+            form.appendChild(inputPopis);
             form.appendChild(btnSave);
             form.appendChild(btnCancel);
 
@@ -654,7 +667,8 @@
                         jmeno: inputJmeno.value,
                         vek: inputVek.value,
                         opatrovnik_id: selectOpatrovnik.value,
-                        druh_id: selectDruh.value // správně ID!
+                        druh_id: selectDruh.value,
+                        popis: inputPopis.value
                     })
                 });
                 fetchZvirata();
@@ -686,7 +700,6 @@
         menuIcon.addEventListener('mouseenter', showMenu);
         // Zavře menu pouze pokud myš není ani na ikoně ani na menu
         menuIcon.addEventListener('mouseleave', () => {
-            // Pokud myš není na menu, zavři
             menuTimeout = setTimeout(() => {
                 if (!sideMenu.matches(':hover')) {
                     hideMenu();
@@ -698,7 +711,6 @@
             clearTimeout(menuTimeout);
         });
         sideMenu.addEventListener('mouseleave', () => {
-            // Pokud myš není na ikoně, zavři
             menuTimeout = setTimeout(() => {
                 if (!menuIcon.matches(':hover')) {
                     hideMenu();

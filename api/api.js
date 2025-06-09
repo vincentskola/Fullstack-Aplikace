@@ -37,10 +37,10 @@ router.get('/zvirata/:id', (req, res) => {
 
 // Create (POST nové zvíře)
 router.post('/zvirata', (req, res) => {
-  const { jmeno, vek, druh_id, opatrovnik_id } = req.body;
+  const { jmeno, vek, druh_id, opatrovnik_id, popis } = req.body; // přidán popis
   db.run(
-    'INSERT INTO zvirata (jmeno, vek, druh_id, opatrovnik_id) VALUES (?, ?, ?, ?)',
-    [jmeno, vek, druh_id, opatrovnik_id],
+    'INSERT INTO zvirata (jmeno, vek, druh_id, opatrovnik_id, popis) VALUES (?, ?, ?, ?, ?)', // přidán popis
+    [jmeno, vek, druh_id, opatrovnik_id, popis], // přidán popis
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
       db.all(
@@ -60,10 +60,10 @@ router.post('/zvirata', (req, res) => {
 
 // Update (PUT aktualizace zvířete)
 router.put('/zvirata/:id', (req, res) => {
-  const { jmeno, vek, opatrovnik_id, druh_id } = req.body;
+  const { jmeno, vek, opatrovnik_id, druh_id, popis } = req.body; // přidán popis
   db.run(
-    'UPDATE zvirata SET jmeno = ?, vek = ?, opatrovnik_id = ?, druh_id = ? WHERE id = ?',
-    [jmeno, vek, opatrovnik_id, druh_id, req.params.id],
+    'UPDATE zvirata SET jmeno = ?, vek = ?, opatrovnik_id = ?, druh_id = ?, popis = ? WHERE id = ?', // přidán popis
+    [jmeno, vek, opatrovnik_id, druh_id, popis, req.params.id], // přidán popis
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
       if (this.changes === 0) return res.status(404).json({ error: 'Zvíře nenalezeno' });

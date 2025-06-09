@@ -323,7 +323,8 @@
                     `<li>
                         <strong>${a.jmeno}</strong><br>
                         <span>Druh: ${a.druh}</span><br>
-                        <span>Věk: ${a.vek}</span>
+                        <span>Věk: ${a.vek}</span><br>
+                        <span>${a.popis ? a.popis : ''}</span>
                     </li>`
                 ).join('');
             }
