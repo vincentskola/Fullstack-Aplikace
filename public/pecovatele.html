@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opatrovníci a kontakty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --green: #3a6b3f;
@@ -25,7 +26,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+            font-family: 'Unbounded', Arial, sans-serif;
         }
         .center-container {
             display: flex;
@@ -34,38 +35,37 @@
             width: 100%;
         }
         h1 {
-            color: var(--headline);
-            text-shadow: 0 4px 24px #7c5a3a99, 0 2px 0 #fff;
-            text-align: center;
+            background: rgba(255,255,255,0.45);
+            color: #234d20;
+            text-shadow: 0 6px 32px #234d20cc, 0 2px 0 #fff, 0 0 12px #e7cfa0;
+            border-radius: 22px;
+            padding: 22px 0 22px 0;
+            border: 4px solid #e7cfa0;
+            display: flex;                /* změna na flex */
+            justify-content: center;      /* zarovnání na střed */
+            align-items: center;          /* vertikální zarovnání */
+            min-width: 340px;
+            max-width: 95vw;
+            width: 34vw;
+            box-sizing: border-box;
+            letter-spacing: 2px;
+            font-weight: 700;
             font-size: 3em;
             margin-top: 60px;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.7em;
             position: relative;
             z-index: 1;
-        }
-        h1::before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 100vw;
-            height: 180px;
-            background: url('zvirata4.png') center center/contain no-repeat;
-            opacity: 0.85;
-            z-index: -1;
-            pointer-events: none;
+            text-align: center;           /* pro jistotu */
         }
         section {
-            background: rgba(35,77,32,0.93);
+            background: rgba(255,255,255,0.70); /* průhledné pozadí */
             border-radius: 22px;
             box-shadow: 0 4px 32px #0003;
             margin: 36px auto;
             padding: 48px 44px 38px 44px;
-            max-width: 700px;
-            min-width: 380px;
-            color: var(--sand);
+            max-width: 900px;
+            min-width: 320px;
+            color: var(--dark-green);
             position: relative;
             z-index: 1;
             display: flex;
@@ -80,20 +80,27 @@
         table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0 12px;
+            border-spacing: 0 18px; /* větší mezera mezi řádky */
         }
         th, td {
-            padding: 12px 18px;
+            padding: 14px 22px;
             background: var(--light-sand);
             color: var(--dark-green);
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: left;
-            font-size: 1.1em;
+            font-size: 1.13em;
         }
         th {
             background: var(--accent);
             color: var(--dark-green);
-            font-size: 1.15em;
+            font-size: 1.18em;
+            letter-spacing: 1px;
+        }
+        td:not(:last-child) {
+            border-right: 18px solid transparent; /* mezera mezi sloupci */
+        }
+        tr {
+            margin-bottom: 18px;
         }
         @media (max-width: 900px) {
             section {
@@ -101,10 +108,14 @@
                 min-width: unset;
                 padding: 24px 6vw 24px 6vw;
             }
-            h1::before {
-                width: 220px;
-                height: 70px;
-                top: -30px;
+            h1 {
+                font-size: 1.5em;
+                min-width: unset;
+                width: 90vw;
+            }
+            th, td {
+                padding: 10px 8px;
+                font-size: 1em;
             }
         }
     </style>
@@ -112,29 +123,37 @@
 <body>
     <div class="center-container">
         <h1>Opatrovníci a kontakty</h1>
-        <section>
-            <h2>Seznam opatrovníků</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Jméno</th>
-                        <th>Příjmení</th>
-                        <th>Email</th>
-                        <th>Telefon</th>
-                    </tr>
-                </thead>
-                <tbody id="opatrovnici-tbody">
-                    <!-- Data se doplní skriptem -->
-                </tbody>
-            </table>
-        </section>
+        <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: center;">
+            <section style="background: rgba(255,255,255,0.70); border-radius: 22px; box-shadow: 0 4px 32px #0003; margin: 36px auto; padding: 48px 44px 38px 44px; max-width: 900px; min-width: 320px; color: var(--dark-green); position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center;">
+                <h2>Seznam opatrovníků</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jméno</th>
+                            <th>Příjmení</th>
+                            <th>Email</th>
+                            <th>Telefon</th>
+                        </tr>
+                    </thead>
+                    <tbody id="opatrovnici-tbody">
+                        <!-- Data se doplní skriptem -->
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <img src="clovek2.png" alt="Ilustrace člověka"
+            style="position: fixed; left: 0; bottom: 0; max-height: 260px; height: 28vw; min-height: 120px; object-fit: contain; z-index: 2; pointer-events: none;">
     </div>
     <script>
-        // Ukázková data, v reálné aplikaci načítej z API
+        // Zde doplňte všechny opatrovníky, které máte v systému
         const opatrovnici = [
-            { jmeno: "Bořek", prijmeni: "Novák", email: "borek.novak@email.cz", telefon: "777 123 456" },
-            { jmeno: "Anna", prijmeni: "Svobodová", email: "anna.svobodova@email.cz", telefon: "606 987 654" },
-            { jmeno: "Karel", prijmeni: "Dvořák", email: "karel.dvorak@email.cz", telefon: "603 456 789" }
+            { jmeno: "Bořek", prijmeni: "Novák", email: "borek.novak@seznam.cz", telefon: "777 123 456" },
+            { jmeno: "Anna", prijmeni: "Svobodová", email: "anna.svobodova@seznam.cz", telefon: "606 987 654" },
+            { jmeno: "Karel", prijmeni: "Dvořák", email: "karel.dvorak@seznam.cz", telefon: "603 456 789" },
+            { jmeno: "Tomáš", prijmeni: "Chňapko", email: "tomas.chnapko@seznam.cz", telefon: "602 111 222" },
+            { jmeno: "František", prijmeni: "Karel", email: "frantisek.karel@seznam.cz", telefon: "604 333 444" },
+            { jmeno: "Jaroslav", prijmeni: "Černý", email: "jaroslav.cerny@seznam.cz", telefon: "605 555 666" }
+            // Přidejte další opatrovníky dle potřeby
         ];
 
         const tbody = document.getElementById('opatrovnici-tbody');

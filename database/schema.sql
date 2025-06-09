@@ -2,10 +2,10 @@ CREATE TABLE zvirata (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     jmeno TEXT NOT NULL,
     vek INTEGER,
-    druh_id INTEGER, -- změněno na druh_id
+    druh_id INTEGER NOT NULL,
     opatrovnik_id INTEGER,
-    FOREIGN KEY (opatrovnik_id) REFERENCES opatrovnici(id),
-    FOREIGN KEY (druh_id) REFERENCES druhy(id) -- přidáno
+    FOREIGN KEY (opatrovnik_id) REFERENCES opatrovnici(id) ON DELETE SET NULL,
+    FOREIGN KEY (druh_id) REFERENCES druhy(id) ON DELETE RESTRICT
 );
 
 CREATE TABLE opatrovnici (
@@ -19,8 +19,8 @@ CREATE TABLE pece (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     zvirata_id INTEGER NOT NULL,
     opatrovnik_id INTEGER NOT NULL,
-    FOREIGN KEY (zvirata_id) REFERENCES zvirata(id),
-    FOREIGN KEY (opatrovnik_id) REFERENCES opatrovnici(id)
+    FOREIGN KEY (zvirata_id) REFERENCES zvirata(id) ON DELETE CASCADE,
+    FOREIGN KEY (opatrovnik_id) REFERENCES opatrovnici(id) ON DELETE CASCADE
 );
 
 CREATE TABLE druhy (

@@ -68,7 +68,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
+            width: 100vw;
             position: relative;
             z-index: 1;
         }
@@ -104,9 +104,10 @@
             border-radius: 22px;
             box-shadow: 0 4px 32px #0002;
             margin: 36px auto;
-            padding: 48px 64px 38px 64px;
-            max-width: 700px;
-            min-width: 520px;
+            padding: 48px 0 38px 0;
+            max-width: 1240px;
+            /* o něco širší než seznam */
+            min-width: 600px;
             color: #234d20;
             position: relative;
             z-index: 1;
@@ -114,7 +115,6 @@
             flex-direction: column;
             align-items: center;
             border: 3px solid #8fd6a3;
-            /* světlejší zelená */
         }
 
         label {
@@ -145,7 +145,7 @@
 
         select,
         select option {
-            color: #222 !important;
+            color: #234d20 !important;
             background: #fff !important;
         }
 
@@ -154,8 +154,10 @@
             color: var(--dark-green) !important;
             border: none;
             border-radius: 999px;
-            padding: 16px 48px;
-            font-size: 1.18em;
+            padding: 8px 22px;
+            /* menší tlačítko */
+            font-size: 1em;
+            /* menší písmo */
             font-weight: bold;
             letter-spacing: 1px;
             cursor: pointer;
@@ -181,7 +183,8 @@
             list-style: none;
             padding: 0;
             width: 100%;
-            max-width: 800px;
+            max-width: 1200px;
+            /* zúžený seznam */
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -189,41 +192,46 @@
         }
 
         ul#zvirata-list li {
-            background: rgba(35, 77, 32, 0.65);
+            background: rgba(35, 77, 32, 0.85);
             color: #fff;
             margin-bottom: 22px;
-            padding: 0;
+            padding: 0 32px;
             border-radius: 18px;
             box-shadow: 0 2px 18px #0002;
             font-size: 1.18em;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            min-width: 600px;
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
+            gap: 32px;
+            overflow-x: auto;
         }
 
-        ul#zvirata-list li>span {
+        .zvire-info {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            width: 100%;
-            gap: 0;
-            text-align: center;
+            grid-template-columns: 1.5fr 0.7fr 2fr 1.2fr;
+            gap: 18px;
             align-items: center;
+            width: 100%;
             padding: 24px 0;
+            font-size: 1.1em;
+            word-break: break-word;
+            /* zalamuje dlouhá slova */
         }
 
-        ul#zvirata-list li strong,
-        ul#zvirata-list li .zvire-jmeno,
-        ul#zvirata-list li .zvire-vek,
-        ul#zvirata-list li .zvire-opatrovnik,
-        ul#zvirata-list li .zvire-druh {
-            display: block;
-            width: 100%;
-            color: #fff !important;
-            font-weight: bold;
+        .zvire-actions {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            min-width: 100px;
+            justify-content: flex-end;
         }
 
         ul#zvirata-list li button {
-            margin-left: 12px;
+            margin: 0;
         }
 
         /* Ikonka menu vpravo nahoře */
@@ -367,6 +375,36 @@
             font-size: 1.22em;
             padding: 18px;
         }
+
+        .bg-img1,
+        .bg-img2,
+        .bg-img3 {
+            position: fixed;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.92;
+        }
+
+        .bg-img1 {
+            left: 0;
+            top: 0;
+            width: 420px;
+            height: auto;
+        }
+
+        .bg-img2 {
+            right: 0;
+            top: 0;
+            width: 420px;
+            height: auto;
+        }
+
+        .bg-img3 {
+            left: calc(50% - 210px);
+            bottom: 0;
+            width: 420px;
+            height: auto;
+        }
     </style>
 </head>
 
@@ -390,12 +428,12 @@
                     <input type="number" id="vek" name="vek" required>
                 </div>
                 <div>
-                    <label for="opatrovnik">Opatrovník:</label>
-                    <select id="opatrovnik" name="opatrovnik_id" required></select>
+                    <label for="druh">Druh zvířete:</label>
+                    <select id="druh" name="druh" required></select>
                 </div>
                 <div>
-                    <label for="druh">Druh:</label>
-                    <select id="druh" name="druh" required></select>
+                    <label for="opatrovnik">Opatrovník:</label>
+                    <select id="opatrovnik" name="opatrovnik_id" required></select>
                 </div>
                 <div style="text-align:center;">
                     <button type="submit" class="spotify-btn">Přidat zvíře</button>
@@ -417,10 +455,10 @@
     <nav class="side-menu" id="sideMenu">
         <h3>Menu</h3>
         <ul>
-            <li><a href="#zvirata">Zvířata</a></li>
-            <li><a href="#pecovatele">Pečovatelé</a></li>
-            <li><a href="#adopce">Adopce</a></li>
-            <li><a href="#financni">Finanční pomoc</a></li>
+            <li><a href="index.html">Zvířata</a></li>
+            <li><a href="pecovatele.html">Pečovatelé</a></li>
+            <li><a href="adopce.html">Informace o Adopci</a></li>
+            <li><a href="finance.html">Finanční pomoc</a></li>
         </ul>
     </nav>
 
@@ -504,32 +542,32 @@
                     const li = document.createElement('li');
                     const opatrovnik = opatrovniciCache.find(o => o.id === zvire.opatrovnik_id) || {};
                     li.innerHTML = `
-                        <span>
-                            <span class="zvire-jmeno">${zvire.jmeno}</span>
-                            <span class="zvire-vek">${zvire.vek}</span>
-                            <span class="zvire-opatrovnik">${opatrovnik.jmeno ? opatrovnik.jmeno + ' ' + opatrovnik.prijmeni : 'neznámý'}</span>
-                            <span class="zvire-druh">${zvire.druh}</span>
-                        </span>
-                    `;
+    <div class="zvire-info">
+        <span class="zvire-jmeno">${zvire.jmeno}</span>
+        <span class="zvire-vek">${zvire.vek}</span>
+        <span class="zvire-opatrovnik">${opatrovnik.jmeno ? opatrovnik.jmeno + ' ' + opatrovnik.prijmeni : 'neznámý'}</span>
+        <span class="zvire-druh">${zvire.druh}</span>
+    </div>
+    <div class="zvire-actions"></div>
+`;
+                    const actions = li.querySelector('.zvire-actions');
 
                     // Tlačítko Smazat
                     const btnDelete = document.createElement('button');
                     btnDelete.textContent = 'Smazat';
                     btnDelete.className = 'spotify-btn danger';
                     btnDelete.onclick = async () => {
-                        if (confirm('Opravdu smazat toto zvíře?')) {
-                            await fetch(`/api/zvirata/${zvire.id}`, { method: 'DELETE' });
-                            fetchZvirata();
-                        }
+                        await fetch(`/api/zvirata/${zvire.id}`, { method: 'DELETE' });
+                        fetchZvirata();
                     };
-                    li.appendChild(btnDelete);
+                    actions.appendChild(btnDelete);
 
                     // Tlačítko Upravit
                     const btnEdit = document.createElement('button');
                     btnEdit.textContent = 'Upravit';
                     btnEdit.className = 'spotify-btn';
                     btnEdit.onclick = () => showEditForm(zvire, li);
-                    li.appendChild(btnEdit);
+                    actions.appendChild(btnEdit);
 
                     list.appendChild(li);
                 });
@@ -629,34 +667,3 @@
 </body>
 
 </html>
-<style>
-    .bg-img1,
-    .bg-img2,
-    .bg-img3 {
-        position: fixed;
-        z-index: -1;
-        pointer-events: none;
-        opacity: 0.92;
-    }
-
-    .bg-img1 {
-        left: 0;
-        top: 0;
-        width: 420px;
-        height: auto;
-    }
-
-    .bg-img2 {
-        right: 0;
-        top: 0;
-        width: 420px;
-        height: auto;
-    }
-
-    .bg-img3 {
-        left: calc(50% - 210px);
-        bottom: 0;
-        width: 420px;
-        height: auto;
-    }
-</style>

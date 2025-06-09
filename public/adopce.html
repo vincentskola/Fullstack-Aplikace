@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopce zvířete</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f5dc;
+            font-family: 'Unbounded', Arial, sans-serif;
+            color: #234d20;
+            position: relative;
+        }
+        .adopce-bg-img {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            height: 70vh;
+            max-height: 480px;
+            z-index: 0;
+            pointer-events: none;
+            /* lehké zesvětlení obrázku pro decentnost */
+            opacity: 0.92;
+        }
+        .adopce-container {
+            max-width: 1100px;
+            margin: 48px auto 0 auto;
+            background: rgba(255,255,255,0.85);
+            border-radius: 22px;
+            box-shadow: 0 4px 32px #0002;
+            padding: 48px 36px 48px 36px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            color: #234d20;
+            font-size: 2.4em;
+            margin-bottom: 32px;
+            text-shadow: 0 2px 12px #e9d8a6;
+        }
+        h2 {
+            color: #3a6b3f;
+            margin-top: 32px;
+        }
+        p, ul, li {
+            font-size: 1.18em;
+            line-height: 1.6;
+        }
+        .kontakt {
+            margin-top: 32px;
+            font-size: 1.15em;
+            background: #f7ecd0;
+            border-radius: 12px;
+            padding: 18px 24px;
+            display: inline-block;
+        }
+        @media (max-width: 700px) {
+            .adopce-container {
+                padding: 18px 4vw;
+            }
+            h1 {
+                font-size: 1.3em;
+            }
+            .adopce-bg-img {
+                height: 32vh;
+                max-height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="clovek.png" alt="Člověk sleduje formulář" class="adopce-bg-img">
+    <div class="adopce-container">
+        <h1>Informace k adopci zvířete z útulku</h1>
+        <p><strong>Vážení zájemci o adopci,</strong></p>
+        <p>
+            útulek pro opuštěná zvířata „Záchranný domov pro chlupáče“ Vám tímto předkládá podrobné informace týkající se adopce zvířete. Adopce je velkým krokem, který mění nejen život zvířete, ale i nového majitele. Cílem tohoto dokumentu je informovat veřejnost o podmínkách, možnostech a zodpovědnosti, kterou adopce obnáší.
+        </p>
+        <h2>Proč adoptovat?</h2>
+        <p>
+            Každoročně se v útulcích po celé republice ocitnou stovky až tisíce zvířat, která z různých důvodů přišla o svůj domov. Nejčastěji se jedná o psy a kočky, ale i o drobné savce, plazy či ptáky. Mnohá z těchto zvířat jsou zdravá, očkovaná a připravena na nový život. Adopcí dáváte zvířeti druhou šanci – možnost opět zažít lásku, klid a bezpečí domova.
+        </p>
+        <h2>Jak probíhá adopce?</h2>
+        <ul>
+            <li><strong>Výběr zvířete</strong> – Na našich webových stránkách nebo přímo při osobní návštěvě útulku si můžete vybrat z nabídky zvířat k adopci. Každé zvíře má svůj profil, kde jsou uvedeny základní informace: věk, plemeno, povaha, zdravotní stav a další důležité poznámky.</li>
+            <li><strong>Osobní setkání</strong> – Před samotnou adopcí je vždy doporučeno navštívit útulek a osobně se se zvířetem seznámit. U psů je možné absolvovat společnou procházku, abyste zjistili, zda si vzájemně "sednete".</li>
+            <li><strong>Adopční dotazník a pohovor</strong> – V rámci prevence neodpovědného osvojování zvířat žádáme každého zájemce o vyplnění adopčního dotazníku a následný krátký rozhovor s pracovníkem útulku. Tento krok pomáhá zajistit, že nový domov bude odpovídat potřebám konkrétního zvířete.</li>
+            <li><strong>Podpis adopční smlouvy</strong> – Pokud je vše v pořádku, přechází se k podpisu adopční smlouvy. Tento dokument stanovuje základní práva a povinnosti obou stran.</li>
+            <li><strong>Předání zvířete a poplatek</strong> – Po podpisu smlouvy je zvíře předáno novému majiteli. S adopcí je spojen symbolický poplatek, který pomáhá pokrýt část nákladů spojených s péčí o zvíře během jeho pobytu v útulku.</li>
+        </ul>
+        <h2>Co je třeba zvážit před adopcí?</h2>
+        <p>
+            Adopce není impulzivní rozhodnutí. Je důležité si uvědomit, že zvíře vyžaduje každodenní péči, čas, pozornost a často i finanční prostředky. Pes nebo kočka může být vaším společníkem i více než 15 let. Ujistěte se, že Vaše domácí a pracovní podmínky umožňují bezpečný a pohodlný život pro zvíře.
+        </p>
+        <div class="kontakt">
+            <strong>Kontaktní údaje</strong><br>
+            V případě zájmu o adopci, nebo pokud máte jakékoli další dotazy, nás prosím neváhejte kontaktovat:<br><br>
+            📧 E-mail: <a href="mailto:info@chlupacidomov.cz">info@chlupacidomov.cz</a><br>
+            📞 Telefon: <a href="tel:+420777123456">+420 777 123 456</a><br>
+            📍 Adresa: U Zvířecího útulku 12, 100 00 Praha 10
+        </div>
+        <p style="margin-top:32px;">
+            Děkujeme, že zvažujete adopci a pomáháte zvířatům najít nový domov. Vaše rozhodnutí může změnit život – nejen tomu zvířeti, ale i Vám samotným.
+        </p>
+        <p style="margin-top:18px;">
+            S úctou,<br>
+            Tým útulku Záchranný domov pro chlupáče
+        </p>
+    </div>
+</body>
+</html>
