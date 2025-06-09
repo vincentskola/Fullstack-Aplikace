@@ -181,30 +181,73 @@
         .menu-overlay.open {
             background: rgba(0,0,0,0.18);
         }
+        .finance-page-flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start; /* posun doleva */
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .side-img {
+            width: 340px;
+            max-width: 44vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;
+            margin-bottom: 0;
+            background: transparent;
+            object-fit: contain;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .side-img.left {
+            margin-right: 72px;
+            margin-left: 0;
+        }
+        .side-img.right {
+            margin-left: 72px;
+            margin-right: 0;
+        }
+        @media (max-width: 900px) {
+            .finance-page-flex {
+                flex-direction: column;
+                align-items: center;
+            }
+            .side-img {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="finance-container">
-        <h1>Finanční pomoc útulku</h1>
-        <div class="bank-info">
-            Číslo účtu pro dary:<br>
-            <span style="font-size:1.25em; color:#3a6b3f;">123456789/0100</span>
-            <br>
-            Variabilní symbol: <b>2024</b>
-        </div>
-        <div class="qr-section">
-            <img src="qrcode.png" alt="QR kód pro platbu">
-            <div>
-                Naskenujte QR kód pro rychlou platbu<br>
-                nebo použijte údaje výše.
+    <div class="finance-page-flex">
+        <img src="clovek3.png" alt="Dárce" class="side-img left">
+        <div class="finance-container">
+            <h1>Finanční pomoc útulku</h1>
+            <div class="bank-info">
+                Číslo účtu pro dary:<br>
+                <span style="font-size:1.25em; color:#3a6b3f;">123456789/0100</span>
+                <br>
+                Variabilní symbol: <b>2024</b>
+            </div>
+            <div class="qr-section">
+                <img src="qrcode.png" alt="QR kód pro platbu">
+                <div>
+                    Naskenujte QR kód pro rychlou platbu<br>
+                    nebo použijte údaje výše.
+                </div>
+            </div>
+            <div class="thanks">
+                Děkujeme za jakýkoliv příspěvek!<br>
+                Každá koruna pomáhá našim svěřencům k lepšímu životu.<br>
+                <br>
+                <i>Tým útulku Záchranný domov pro chlupáče</i>
             </div>
         </div>
-        <div class="thanks">
-            Děkujeme za jakýkoliv příspěvek!<br>
-            Každá koruna pomáhá našim svěřencům k lepšímu životu.<br>
-            <br>
-            <i>Tým útulku Záchranný domov pro chlupáče</i>
-        </div>
+        <img src="thankyou.png" alt="Děkujeme" class="side-img right">
     </div>
     <!-- Ikonka menu -->
     <img src="menu.png" alt="Menu" class="menu-icon" id="menuIcon">
