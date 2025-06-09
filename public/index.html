@@ -237,47 +237,56 @@
         /* Ikonka menu vpravo nahoře */
         .menu-icon {
             position: fixed;
-            top: 32px;
-            right: 38px;
-            width: 48px;
-            height: 48px;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
             z-index: 1002;
             cursor: pointer;
-            transition: filter 0.2s;
+            background: #fff8;
+            border-radius: 50%;
+            box-shadow: 0 2px 12px #0002;
+            transition: box-shadow 0.2s;
+            display: block;
         }
 
         .menu-icon:hover {
-            filter: brightness(1.2);
+            box-shadow: 0 4px 24px #0004;
         }
 
         /* Boční menu */
         .side-menu {
             position: fixed;
             top: 0;
-            right: -34vw;
-            width: 34vw;
-            max-width: 420px;
+            right: -322px;
+            width: 320px;
+            max-width: 90vw;
             height: 100vh;
-            background: rgba(35, 77, 32, 0.97);
-            box-shadow: -4px 0 32px #0007;
+            background: #295528;
+            color: #fff;
             z-index: 1001;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 64px 36px 36px 36px;
-            transition: right 0.35s cubic-bezier(.77, 0, .18, 1);
+            padding: 32px 0 0 24px;
+            border-top-left-radius: 18px;
+            border-bottom-left-radius: 18px;
+            box-shadow: -8px 0 32px #0007;
+            transition: right 0.32s cubic-bezier(.77, 0, .18, 1);
         }
 
         .side-menu.open {
             right: 0;
+            /* menu se vysune */
         }
 
         .side-menu h3 {
             color: #fff;
+            font-size: 1.6em;
+            margin-bottom: 28px;
             margin-top: 0;
-            margin-bottom: 32px;
-            font-size: 2em;
-            letter-spacing: 1px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
         }
 
         .side-menu ul {
@@ -294,16 +303,17 @@
         .side-menu a {
             color: #fff;
             font-size: 1.35em;
-            text-decoration: none;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            padding: 0;
             transition: color 0.2s;
+            text-decoration: none;
             display: block;
-            padding: 8px 0;
+            font-family: 'Unbounded', Arial, sans-serif;
         }
 
         .side-menu a:hover {
-            color: var(--accent);
+            color: #e9d8a6 !important;
         }
 
         /* Klikací overlay pro zavření menu */
@@ -314,7 +324,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.18);
             z-index: 1000;
         }
 
@@ -344,9 +354,15 @@
 
         @media (max-width: 700px) {
             .side-menu {
-                width: 80vw;
-                max-width: 100vw;
-                padding: 48px 18px 18px 18px;
+                width: 98vw;
+                min-width: 0;
+                max-width: 98vw;
+                padding: 22px 0 0 12px;
+            }
+
+            .menu-icon {
+                right: 8px;
+                top: 8px;
             }
 
             .bg-img1,
@@ -455,10 +471,11 @@
     <nav class="side-menu" id="sideMenu">
         <h3>Menu</h3>
         <ul>
-            <li><a href="index.html">Zvířata</a></li>
+            <li><a href="zvirata.html">Zvířata</a></li>
             <li><a href="pecovatele.html">Pečovatelé</a></li>
-            <li><a href="adopce.html">Informace o Adopci</a></li>
             <li><a href="finance.html">Finanční pomoc</a></li>
+            <li><a href="adopce.html">Informace o Adopci</a></li>
+            <li><a href="index.html">Správa zvířátek</a></li>
         </ul>
     </nav>
 
@@ -646,23 +663,50 @@
             li.appendChild(form);
         }
 
-        // Menu interakce
+        // Menu se vysune pouze při najetí na ikonku menu.png, zasune až při opuštění ikonky i menu
         const menuIcon = document.getElementById('menuIcon');
         const sideMenu = document.getElementById('sideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
 
-        menuIcon.addEventListener('mouseenter', () => {
+        let menuTimeout;
+
+        function showMenu() {
+            clearTimeout(menuTimeout);
             sideMenu.classList.add('open');
             menuOverlay.classList.add('open');
+        }
+        function hideMenu() {
+            menuTimeout = setTimeout(() => {
+                sideMenu.classList.remove('open');
+                menuOverlay.classList.remove('open');
+            }, 120);
+        }
+
+        // Otevře menu při najetí na ikonku
+        menuIcon.addEventListener('mouseenter', showMenu);
+        // Zavře menu pouze pokud myš není ani na ikoně ani na menu
+        menuIcon.addEventListener('mouseleave', () => {
+            // Pokud myš není na menu, zavři
+            menuTimeout = setTimeout(() => {
+                if (!sideMenu.matches(':hover')) {
+                    hideMenu();
+                }
+            }, 120);
+        });
+
+        sideMenu.addEventListener('mouseenter', () => {
+            clearTimeout(menuTimeout);
         });
         sideMenu.addEventListener('mouseleave', () => {
-            sideMenu.classList.remove('open');
-            menuOverlay.classList.remove('open');
+            // Pokud myš není na ikoně, zavři
+            menuTimeout = setTimeout(() => {
+                if (!menuIcon.matches(':hover')) {
+                    hideMenu();
+                }
+            }, 120);
         });
-        menuOverlay.addEventListener('mouseenter', () => {
-            sideMenu.classList.remove('open');
-            menuOverlay.classList.remove('open');
-        });
+
+        menuOverlay.addEventListener('click', hideMenu);
     </script>
 </body>
 

@@ -22,23 +22,125 @@
             max-height: 480px;
             z-index: 0;
             pointer-events: none;
-            /* lehké zesvětlení obrázku pro decentnost */
             opacity: 0.92;
         }
+        /* MENU STYLY */
+        .menu-icon {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            z-index: 1002;
+            cursor: pointer;
+            background: #fff8;
+            border-radius: 50%;
+            box-shadow: 0 2px 12px #0002;
+            transition: box-shadow 0.2s;
+        }
+        .menu-icon:hover {
+            box-shadow: 0 4px 24px #0004;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.38);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -354px; /* menu je celé schované mimo obrazovku */
+            width: 320px;
+            height: 100vh;
+            background: #295528;
+            color: #fff;
+            box-shadow: -8px 0 24px #0002;
+            z-index: 1001;
+            padding: 32px 24px 24px 32px;
+            border-top-left-radius: 18px;
+            border-bottom-left-radius: 18px;
+            transition: right 0.28s cubic-bezier(.77,0,.18,1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            opacity: 0.96;
+        }
+        .side-menu.open {
+            right: 0;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .side-menu h3 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.25em;
+            margin-bottom: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        .side-menu li {
+            margin-bottom: 22px;
+        }
+        .side-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.18em;
+            font-weight: 600;
+            transition: color 0.15s;
+            display: block;
+            padding: 2px 0;
+            font-family: 'Unbounded', Arial, sans-serif;
+        }
+        .side-menu a:hover {
+            color: #e9d8a6 !important;
+        }
+        /* Overlay pro zavření menu */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.38);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        /* KONEC MENU STYLŮ */
         .adopce-container {
-            max-width: 1100px;
+            max-width: 900px; /* původně 600px */
             margin: 48px auto 0 auto;
             background: rgba(255,255,255,0.85);
             border-radius: 22px;
             box-shadow: 0 4px 32px #0002;
-            padding: 48px 36px 48px 36px;
+            padding: 48px 56px 48px 56px; /* širší padding */
             position: relative;
             z-index: 1;
+            text-align: center;
         }
         h1 {
             text-align: center;
             color: #234d20;
-            font-size: 2.4em;
+            font-size: 2.1em;
             margin-bottom: 32px;
             text-shadow: 0 2px 12px #e9d8a6;
         }
@@ -47,12 +149,13 @@
             margin-top: 32px;
         }
         p, ul, li {
-            font-size: 1.18em;
+            font-size: 1.12em;
             line-height: 1.6;
+            text-align: left;
         }
         .kontakt {
             margin-top: 32px;
-            font-size: 1.15em;
+            font-size: 1.08em;
             background: #f7ecd0;
             border-radius: 12px;
             padding: 18px 24px;
@@ -61,6 +164,7 @@
         @media (max-width: 700px) {
             .adopce-container {
                 padding: 18px 4vw;
+                max-width: 98vw;
             }
             h1 {
                 font-size: 1.3em;
@@ -69,11 +173,44 @@
                 height: 32vh;
                 max-height: 160px;
             }
+            .side-menu {
+                width: 85vw;
+                min-width: 160px;
+                max-width: 98vw;
+                right: calc(-85vw); /* celé menu schované */
+                padding: 22px 10vw 18px 7vw;
+            }
+            .side-menu.open {
+                right: 0;
+            }
+            .menu-icon {
+                right: 8px;
+                top: 8px;
+            }
         }
     </style>
 </head>
 <body>
     <img src="clovek.png" alt="Člověk sleduje formulář" class="adopce-bg-img">
+
+    <!-- Ikonka menu -->
+    <img src="menu.png" alt="Menu" class="menu-icon" id="menuIcon">
+
+    <!-- Overlay pro zavření menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Boční menu -->
+    <nav class="side-menu" id="sideMenu">
+        <h3>Menu</h3>
+        <ul>
+            <li><a href="zvirata.html">Zvířata</a></li>
+            <li><a href="pecovatele.html">Pečovatelé</a></li>
+            <li><a href="finance.html">Finanční pomoc</a></li>
+            <li><a href="adopce.html">Informace o Adopci</a></li>
+            <li><a href="index.html">Správa zvířátek</a></li>
+        </ul>
+    </nav>
+
     <div class="adopce-container">
         <h1>Informace k adopci zvířete z útulku</h1>
         <p><strong>Vážení zájemci o adopci,</strong></p>
@@ -111,5 +248,47 @@
             Tým útulku Záchranný domov pro chlupáče
         </p>
     </div>
+    <script>
+        // Menu se vysune pouze při najetí na ikonku, zasune až při opuštění ikonky i menu
+        const menuIcon = document.getElementById('menuIcon');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        let menuTimeout;
+
+        function showMenu() {
+            clearTimeout(menuTimeout);
+            sideMenu.classList.add('open');
+            menuOverlay.classList.add('open');
+        }
+        function hideMenu() {
+            menuTimeout = setTimeout(() => {
+                sideMenu.classList.remove('open');
+                menuOverlay.classList.remove('open');
+            }, 120);
+        }
+
+        menuIcon.addEventListener('mouseenter', showMenu);
+        menuIcon.addEventListener('mouseleave', () => {
+            menuTimeout = setTimeout(() => {
+                if (!sideMenu.matches(':hover')) {
+                    hideMenu();
+                }
+            }, 120);
+        });
+
+        sideMenu.addEventListener('mouseenter', () => {
+            clearTimeout(menuTimeout);
+        });
+        sideMenu.addEventListener('mouseleave', () => {
+            menuTimeout = setTimeout(() => {
+                if (!menuIcon.matches(':hover')) {
+                    hideMenu();
+                }
+            }, 120);
+        });
+
+        menuOverlay.addEventListener('click', hideMenu);
+    </script>
 </body>
 </html>
