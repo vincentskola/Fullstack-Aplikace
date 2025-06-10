@@ -489,9 +489,9 @@
         let opatrovniciCache = [];
         let druhyCache = [];
 
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchDruhy();
-            fetchOpatrovnici();
+        document.addEventListener('DOMContentLoaded', async () => {
+            await fetchDruhy();
+            await fetchOpatrovnici();
             fetchZvirata();
         });
 
