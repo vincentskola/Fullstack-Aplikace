@@ -4,8 +4,10 @@ layout: home
 
 hero:
   name: "Útulek pro zvířátka"
-  text: "Fullstack aplikace pro správu zvířat, pečovatelů a adopcí"
-  tagline: Efektivní správa útulku jednoduše a přehledně
+  text: "Moderní fullstack aplikace pro správu zvířat, pečovatelů a adopcí"
+  tagline: |
+    Digitální evidence, jednoduchá správa svěřenců, pečovatelů i adopcí v útulku. 
+    Vše přehledně, bezpečně a s důrazem na pohodlí uživatelů.
   actions:
     - theme: brand
       text: Začít
@@ -15,11 +17,11 @@ hero:
       link: /api-examples
 
 features:
-  - title: Evidence zvířat
-    details: Přehledné přidávání, úprava a mazání zvířat v útulku.
-  - title: Správa pečovatelů
-    details: Jednoduchá evidence a přiřazení pečovatelů ke zvířatům.
-  - title: Druhy a adopce
-    details: Evidence druhů zvířat a informace o adopci i finanční pomoci.
+  - title: Přehledná evidence zvířat
+    details: Rychlé přidávání, úpravy a mazání zvířat v útulku. Každé zvíře má vlastní kartu s informacemi, druhem a přiřazeným pečovatelem.
+  - title: Správa pečovatelů a kontaktů
+    details: Jednoduchá evidence pečovatelů, jejich kontaktů a svěřených zvířat. Možnost přiřazení pečovatele ke konkrétnímu zvířeti.
+  - title: Adopce a druhy zvířat
+    details: Evidence druhů zvířat, informace o adopci a finanční pomoci.
 ---
 

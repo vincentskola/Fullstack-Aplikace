@@ -1,22 +1,20 @@
-# Finance
+# Finanční pomoc útulku
 
-Tato sekce slouží k evidenci finanční pomoci a darů pro útulek.
+Tato stránka slouží k finančním darům a příspěvkům, které pomáhají našemu útulku zajistit lepší péči o zvířata.
 
 ## Co zde najdete
+- **Údaje pro podporu útulku** – číslo účtu, variabilní symbol, QR kód pro rychlou platbu
 
-- Přehled finančních příspěvků a darů
-- Možnost přidávat nové finanční záznamy
-- Evidence dárců a účelu daru
+### Jak můžete pomoci?
 
-## Hlavní pole finančního záznamu
+Pokud chcete útulek podpořit, použijte následující údaje:
 
-- **Částka**
-- **Dárce**
-- **Datum**
-- **Účel**
+- **Číslo účtu:** 123456789/0100  
+- **Variabilní symbol:** 2024  
+- **QR kód pro platbu:**  
+  *(QR kód najdete na stránce aplikace)*
 
-> Transparentní evidence financí pomáhá lepšímu chodu útulku.
 
 ---
 
-Správa financí je dostupná v aplikaci i přes API endpointy.
+Správa financí je dostupná v hlavní aplikaci i přes API endpointy.

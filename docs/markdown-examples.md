@@ -16,28 +16,6 @@ export default {
 }
 ```
 
-## Vlastní kontejnery
-
-::: info
-Toto je informační box.
-:::
-
-::: tip
-Toto je tip.
-:::
-
-::: warning
-Toto je varování.
-:::
-
-::: danger
-Toto je nebezpečné varování.
-:::
-
-::: details
-Toto je rozbalovací blok s detaily.
-:::
-
 ## Další možnosti
 
 Více najdete v [dokumentaci VitePressu](https://vitepress.dev/guide/markdown).

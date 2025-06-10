@@ -22,7 +22,7 @@ Tato stránka stručně popisuje hlavní API endpointy backendu aplikace útulku
     "vek": 3,
     "druh_id": 1,
     "opatrovnik_id": 2,
-    "popis": "Přátelský pes, apod..."
+    "popis": "Přátelský pes, připravený k adopci, apod..."
   }
   ```
 

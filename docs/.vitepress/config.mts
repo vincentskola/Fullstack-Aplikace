@@ -27,7 +27,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-github-username/your-repo' }
+      { icon: 'github', link: 'https://github.com/vincentskola/Fullstack-Aplikace' }
     ]
   }
 })

@@ -1,24 +1,15 @@
 # Zvířata
 
-Tato sekce slouží k evidenci a správě všech zvířat v útulku.
+Tato stránka slouží k přehledu, evidenci a správě všech zvířat, která jsou aktuálně v útulku. Najdete zde seznam našich svěřenců včetně základních informací o každém z nich.
 
 ## Co zde najdete
 
-- Přehled všech aktuálně evidovaných zvířat
-- Možnost přidávat nové zvíře
-- Úprava a mazání záznamů
-- Zobrazení detailních informací o každém zvířeti
+- **Přehled aktuálně dostupných zvířat k adopci**
+- **Seznam všech zvířat v útulku** – jméno, druh, věk, popis
+- **Detailní informace o každém zvířeti**
 
-## Hlavní pole zvířete
-
-- **Jméno**
-- **Věk**
-- **Druh**
-- **Pečovatel**
-- **Popis**
-
-> Každé zvíře může být přiřazeno konkrétnímu pečovateli a druhu.
+> Každé zvíře má vlastní kartu s informacemi a může být přiřazeno konkrétnímu pečovateli.
 
 ---
-
-Pro práci se zvířaty využijte hlavní stránku aplikace nebo příslušné API endpointy.
+  
+Pro správu zvířat využijte hlavní stránku aplikace nebo příslušné API endpointy.
