@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-# Fullstack-Aplikace
-=======
 # Jíně Vincent Matyáš
 ---
 ## Zvolené rozšíření
-- Popisek
-- Popisek2
+- Evidence druhů zvířat
+- Správa zvířat, jejich adopce
 ---
 ## Spuštění aplikace
 
-- Popisek
-- Popisek2
->>>>>>> 96b3319 (Add: new app)
+- Spusťte `npm install` pro instalaci závislostí
+- Spusťte `npm run dev` a otevřete `public/index.html` v prohlížeči

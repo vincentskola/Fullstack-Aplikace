@@ -1,2 +1,4 @@
 node_modules/
 database/database.sqlite
+docs/.vitepress/dist/
+docs/.vitepress/cache/
