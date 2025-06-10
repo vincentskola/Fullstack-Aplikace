@@ -14,6 +14,7 @@ app.use('/api', apiRoutes); // /api/items
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
+  console.log(`Otevři prohlížeč na: http://localhost:${port}`);
 });
 
 
