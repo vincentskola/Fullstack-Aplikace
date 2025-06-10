@@ -200,3 +200,136 @@ th {
   from { opacity: 0; transform: translateY(24px);}
   to { opacity: 1; transform: translateY(0);}
 }
+
+/* DARK THEME ÚPRAVY */
+[data-theme="dark"] body,
+html.dark body {
+  background: linear-gradient(135deg, #1b3a24 0%, #2a4d37 100%);
+  color: #fff;
+}
+
+[data-theme="dark"] body::before,
+html.dark body::before {
+  background: radial-gradient(circle, #059669 0%, #1b3a24 100%);
+  opacity: 0.22;
+}
+
+[data-theme="dark"] body::after,
+html.dark body::after {
+  background: radial-gradient(circle, #34d399 0%, #1b3a24 100%);
+  opacity: 0.18;
+}
+
+[data-theme="dark"] .VPNav,
+html.dark .VPNav {
+  background: #18291e;
+  border-bottom: 1px solid #059669;
+  box-shadow: 0 2px 8px 0 rgba(5,150,105,0.13);
+}
+
+[data-theme="dark"] .VPSidebar,
+html.dark .VPSidebar {
+  background: rgba(27,58,36,0.97);
+  border-right: 2px solid #059669;
+  box-shadow: 4px 0 24px 0 rgba(5,150,105,0.13);
+}
+
+[data-theme="dark"] .VPSidebar .VPLink,
+html.dark .VPSidebar .VPLink {
+  color: #fff;
+  background: none;
+}
+
+[data-theme="dark"] .VPSidebar .VPLink.active,
+[data-theme="dark"] .VPSidebar .VPLink:hover,
+html.dark .VPSidebar .VPLink.active,
+html.dark .VPSidebar .VPLink:hover {
+  background: linear-gradient(90deg, #1b3a24 0%, #059669 100%);
+  color: #b7f5c9;
+  border-left: 4px solid #34d399;
+  box-shadow: 0 2px 8px 0 rgba(5,150,105,0.18);
+}
+
+[data-theme="dark"] .VPContent,
+html.dark .VPContent {
+  background: #22382a;
+  color: #fff;
+  box-shadow: 0 8px 40px 0 rgba(5,150,105,0.18);
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4,
+html.dark h1, 
+html.dark h2, 
+html.dark h3, 
+html.dark h4 {
+  color: #b7f5c9;
+  text-shadow: 0 2px 8px rgba(5,150,105,0.18);
+}
+
+[data-theme="dark"] h1,
+html.dark h1 {
+  background: linear-gradient(90deg, #34d399 0%, #f59e42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] button, 
+[data-theme="dark"] .VPButton,
+html.dark button, 
+html.dark .VPButton {
+  background: linear-gradient(90deg, #059669 0%, #34d399 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(5,150,105,0.18);
+}
+
+[data-theme="dark"] button:hover, 
+[data-theme="dark"] .VPButton:hover,
+html.dark button:hover, 
+html.dark .VPButton:hover {
+  background: linear-gradient(90deg, #34d399 0%, #059669 100%);
+  box-shadow: 0 4px 24px 0 rgba(5,150,105,0.22);
+}
+
+[data-theme="dark"] pre, 
+[data-theme="dark"] code,
+html.dark pre, 
+html.dark code {
+  background: #111e16;
+  color: #b7f5c9;
+  box-shadow: 0 1px 6px 0 rgba(5,150,105,0.18);
+}
+
+[data-theme="dark"] table,
+html.dark table {
+  background: #22382a;
+  box-shadow: 0 2px 12px 0 rgba(5,150,105,0.13);
+}
+
+[data-theme="dark"] th, 
+[data-theme="dark"] td,
+html.dark th, 
+html.dark td {
+  border-bottom: 1px solid #059669;
+  color: #b7f5c9;
+}
+
+[data-theme="dark"] th,
+html.dark th {
+  background: #1b3a24;
+  color: #34d399;
+}
+
+[data-theme="dark"] a,
+html.dark a {
+  color: #34d399;
+  border-bottom: 2px dashed #f59e42;
+}
+[data-theme="dark"] a:hover,
+html.dark a:hover {
+  color: #f59e42;
+  border-bottom: 2px solid #f59e42;
+}

@@ -214,7 +214,8 @@
 
         .zvire-info {
             display: grid;
-            grid-template-columns: 1.5fr 0.7fr 2fr 1.2fr;
+            grid-template-columns: 1.5fr 0.7fr 2fr 1.5fr;
+            /* poslední sloupec širší */
             gap: 18px;
             align-items: center;
             width: 100%;
@@ -222,6 +223,13 @@
             font-size: 1.1em;
             word-break: break-word;
             /* zalamuje dlouhá slova */
+        }
+
+        .zvire-druh {
+            padding-right: 24px;
+            /* přidá místo mezi druhem a tlačítky */
+            text-align: left;
+            /* případně lze přidat overflow: hidden; text-overflow: ellipsis; pro extra dlouhé názvy */
         }
 
         .zvire-actions {
